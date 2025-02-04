@@ -5,6 +5,13 @@ import { randomUUID } from "node:crypto";
 import { knex } from "../database";
 import { checkSessionIdExists } from "../middlewares/check-session-id-exists";
 
+// unitários: testes que testam uma funcionalidade isolada
+// integração: testes que testam uma funcionalidade em conjunto com outras
+// e2e - ponta a ponta: testes que testam uma funcionalidade em conjunto com outras, mas em um contexto maior
+
+// Pirâmide de testes: E2E (não dependem de nenhuma tecnologia, não dependem de arquitetura, mas são lentos)
+// 2000 testes -> Testes E2E = 16min
+
 export async function transactionsRoutes(app: FastifyInstance) {
   app.get(
     "/",
